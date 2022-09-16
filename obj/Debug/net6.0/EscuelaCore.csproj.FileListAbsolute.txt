@@ -1,0 +1,15 @@
+C:\platzi\EscuelaCore\bin\Debug\net6.0\EscuelaCore.exe
+C:\platzi\EscuelaCore\bin\Debug\net6.0\EscuelaCore.deps.json
+C:\platzi\EscuelaCore\bin\Debug\net6.0\EscuelaCore.runtimeconfig.json
+C:\platzi\EscuelaCore\bin\Debug\net6.0\EscuelaCore.dll
+C:\platzi\EscuelaCore\bin\Debug\net6.0\EscuelaCore.pdb
+C:\platzi\EscuelaCore\obj\Debug\net6.0\EscuelaCore.csproj.AssemblyReference.cache
+C:\platzi\EscuelaCore\obj\Debug\net6.0\EscuelaCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\platzi\EscuelaCore\obj\Debug\net6.0\EscuelaCore.AssemblyInfoInputs.cache
+C:\platzi\EscuelaCore\obj\Debug\net6.0\EscuelaCore.AssemblyInfo.cs
+C:\platzi\EscuelaCore\obj\Debug\net6.0\EscuelaCore.csproj.CoreCompileInputs.cache
+C:\platzi\EscuelaCore\obj\Debug\net6.0\EscuelaCore.dll
+C:\platzi\EscuelaCore\obj\Debug\net6.0\refint\EscuelaCore.dll
+C:\platzi\EscuelaCore\obj\Debug\net6.0\EscuelaCore.pdb
+C:\platzi\EscuelaCore\obj\Debug\net6.0\EscuelaCore.genruntimeconfig.cache
+C:\platzi\EscuelaCore\obj\Debug\net6.0\ref\EscuelaCore.dll
