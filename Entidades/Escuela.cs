@@ -1,7 +1,10 @@
+using System.Collections.Generic;
+
 namespace EscuelaCore.Entidades
 {
     public class Escuela
     {
+        public string UniqueId{get; private set;}=Guid.NewGuid().ToString();
         public string Nombre{get;set;}
 
         public int AnioCreacion { get; set; }
@@ -12,7 +15,7 @@ namespace EscuelaCore.Entidades
 
         public TipoEscuela TipoEscuela {get;set;}
 
-        public Curso[] Cursos { get; set; }
+        public List<Curso> Cursos { get; set; }
 
         public Escuela(string nombre,
                        int anio) => (Nombre , AnioCreacion)=(nombre,anio);

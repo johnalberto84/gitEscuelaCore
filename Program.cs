@@ -1,40 +1,38 @@
-﻿
+﻿using EscuelaCore.Entidades;
+using EscuelaCore.App;
+using EscuelaCore.Until;
 
-using EscuelaCore.Entidades;
-
-
-
-    var escuela = new Escuela("Escuela Platzi", 2022, TipoEscuela.Secundaria,
-                    pais: "Colombia", ciuddad: "Floridablanca");
-
-    var arregloCursos = new Curso[]{
-        new Curso{Nombre="101"},
-        new Curso {Nombre="201"} ,
-        new Curso {Nombre="301"} 
-    };
-
-    escuela.Cursos=arregloCursos;
-   
-
-    Console.WriteLine(escuela);
-    Console.WriteLine("------------------------------------");
-    ImprimirCursos(arregloCursos);
-    ImprimirCursosEscuela(escuela);
-
-void ImprimirCursosEscuela(Escuela escuela)
+internal class Program
 {
-    Console.WriteLine("=====================");
-    Console.WriteLine("Cursos de la Escuela");
-    foreach (var curso in escuela.Cursos)
+    private static void Main(string[] args)
     {
-        Console.WriteLine($"Nombre : {curso.Nombre}=>Id :{curso.UniqueId}" );
-    }
-}
+        EscuelaEngine esc = new EscuelaEngine();
+        esc.Inicializar();
+        Printer.Beep(10000,cantidad:10);
+        ImprimirCursos( esc.Escuela);
 
-void ImprimirCursos(Curso[] arregloCursos)
-    {
-        foreach (var item in escuela.Cursos)
-        {
-            Console.WriteLine($"Nombre : {item.Nombre}=>Id :{item.UniqueId}" );
-        }
+
+        
     }
+
+    private static void ImprimirCursos(Escuela esc)
+        {
+            Printer.WriteTitle("La Gloria de DIOS estoy aprendiendo");
+            foreach (var cur in esc.Cursos)
+            {
+
+                foreach (var alu in cur.Alumnos)
+                {
+                                  
+                    foreach (var eva in alu.Evaluaciones)
+                    {
+                        Console.WriteLine($"Evaluacion{eva.Nombre} ' Alumno'{eva.Alumno.Nombre}' Nota:'{eva.Nota.ToString()} ");
+                    }
+
+                }      
+                        
+                    
+               
+            }
+        }
+}
