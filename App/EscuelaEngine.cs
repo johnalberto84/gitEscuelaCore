@@ -43,7 +43,7 @@ namespace EscuelaCore.App
           var listaEvaluaciones = from c1 in Escuela.Cursos
                                   from c2 in c1.Alumnos
                                   from c3 in c1.Asignaturas
-                                  select new Evaluaciones { Alumno=c2, Asignatura=c3};
+                                  select new Evaluación { Alumno=c2, Asignatura=c3};
 
             for (int i = 0; i < numeroEvaluaciones; i++)
             {
@@ -80,7 +80,7 @@ namespace EscuelaCore.App
                 var rdn = new Random(System.Environment.TickCount);
                 for (int i = 0; i < 5; i++)
                 {
-                  var eva = new Evaluaciones
+                  var eva = new Evaluación
                   { Asignatura= asi,
                     Nombre=$"{asi.Nombre} Eva# {i + 1}",
                     Nota = (float)(5*rdn.NextDouble()),

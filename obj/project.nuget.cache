@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "320iIa6LEtTo1sOsv1zWQOsNBGNnI3fikJzd98+enIcYlQ58/YXUXzHG5EPCrS5SsMCaUCPWQ/jPJtjW1xpTIA==",
+  "dgSpecHash": "OtdlGfTmvb8vO4sWa5/53fYTyx8chWZXBVFNiC1YDkhP618z36u+uRQQiDIAFEBzmhaVo9KJrVXti5bbUidIww==",
   "success": true,
-  "projectFilePath": "C:\\platzi\\EscuelaCore\\EscuelaCore.csproj",
+  "projectFilePath": "C:\\Platzi\\Escuela_Core\\gitEscuelaCore\\EscuelaCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

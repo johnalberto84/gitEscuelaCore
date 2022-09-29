@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EscuelaCore.Entidades
 {
-    public class Evaluaciones
+    public class Evaluación
     {
         public string UniqueId {get; private set ;}
 
@@ -19,7 +19,7 @@ namespace EscuelaCore.Entidades
 
          public float Nota {get;set;}
 
-           public Evaluaciones()=> UniqueId=Guid.NewGuid().ToString();
+           public Evaluación()=> UniqueId=Guid.NewGuid().ToString();
 
     }
 }

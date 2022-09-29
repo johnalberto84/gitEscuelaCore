@@ -8,26 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\jcarrenl\\.nuget\\packages\\": {}
+    "C:\\Users\\Facabo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\platzi\\EscuelaCore\\EscuelaCore.csproj",
+      "projectUniqueName": "C:\\Platzi\\Escuela_Core\\gitEscuelaCore\\EscuelaCore.csproj",
       "projectName": "EscuelaCore",
-      "projectPath": "C:\\platzi\\EscuelaCore\\EscuelaCore.csproj",
-      "packagesPath": "C:\\Users\\jcarrenl\\.nuget\\packages\\",
-      "outputPath": "C:\\platzi\\EscuelaCore\\obj\\",
+      "projectPath": "C:\\Platzi\\Escuela_Core\\gitEscuelaCore\\EscuelaCore.csproj",
+      "packagesPath": "C:\\Users\\Facabo\\.nuget\\packages\\",
+      "outputPath": "C:\\Platzi\\Escuela_Core\\gitEscuelaCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jcarrenl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Facabo\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

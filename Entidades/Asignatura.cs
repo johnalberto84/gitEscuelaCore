@@ -11,7 +11,7 @@ namespace EscuelaCore.Entidades
 
          public string Nombre { get; set; }
 
-         public List<Evaluaciones> Evaluaciones { get; set; }
+         public List<Evaluación> Evaluaciones { get; set; }
 
          public Asignatura()=> UniqueId=Guid.NewGuid().ToString();
     }
