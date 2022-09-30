@@ -1,11 +1,10 @@
 using System.Collections.Generic;
+using gitEscuelaCore.Entidades;
 
 namespace EscuelaCore.Entidades
 {
-    public class Escuela
+    public class Escuela: ObjetoEscuelaBase
     {
-        public string UniqueId{get; private set;}=Guid.NewGuid().ToString();
-        public string Nombre{get;set;}
 
         public int AnioCreacion { get; set; }
 

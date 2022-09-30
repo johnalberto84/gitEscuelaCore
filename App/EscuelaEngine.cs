@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EscuelaCore.Entidades;
+using gitEscuelaCore.Entidades;
 
 namespace EscuelaCore.App
 {
-    public class EscuelaEngine
+  //sealed significa sellada que la clace no puede heredar
+    public sealed class EscuelaEngine
     {
 
         public Escuela Escuela { get; set; }
@@ -33,6 +35,27 @@ namespace EscuelaCore.App
             //CargarEvaluacionesYo(5);
 
 
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetosEscuela() 
+        { 
+          var listObj = new List<ObjetoEscuelaBase>();
+
+          listObj.Add(Escuela);
+          listObj.AddRange(Escuela.Cursos);
+          foreach (var cur in Escuela.Cursos)
+          {
+            listObj.AddRange(cur.Asignaturas);
+            listObj.AddRange(cur.Alumnos);
+
+            foreach (var alu in cur.Alumnos)
+            {
+              listObj.AddRange(alu.Evaluaciones);
+            }
+          }
+
+
+          return listObj;
         }
 
         private void CargarEvaluacionesYo( int numeroEvaluaciones )
