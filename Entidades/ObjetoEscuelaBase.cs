@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace gitEscuelaCore.Entidades
 {
     //abstrac que solamente puede heredar no se pueden crear instancias de la clase
-    public  class ObjetoEscuelaBase
+    public abstract class ObjetoEscuelaBase
     {
          public string UniqueId {get; private set ;}
 

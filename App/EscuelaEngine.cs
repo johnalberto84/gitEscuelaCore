@@ -37,26 +37,49 @@ namespace EscuelaCore.App
 
         }
 
-        public List<ObjetoEscuelaBase> GetObjetosEscuela() 
-        { 
-          var listObj = new List<ObjetoEscuelaBase>();
 
-          listObj.Add(Escuela);
-          listObj.AddRange(Escuela.Cursos);
-          foreach (var cur in Escuela.Cursos)
-          {
-            listObj.AddRange(cur.Asignaturas);
-            listObj.AddRange(cur.Alumnos);
+    public (List<ObjetoEscuelaBase>,int) GetObjetosEscuela(
+      bool traerEvaluacion = true,
+      bool traerAsignaturas = true,
+      bool traerCursos = true,
+      bool traerAlumnos = true) 
+    {
+ 
+      var listObj = new List<ObjetoEscuelaBase>();
 
-            foreach (var alu in cur.Alumnos)
+      int conetoEvaluaciones=0;
+
+      listObj.Add(Escuela);
+
+      if (traerCursos)
+      listObj.AddRange(Escuela.Cursos);
+
+      foreach (var cur in Escuela.Cursos)
+      {
+        if (traerAsignaturas)
+          listObj.AddRange(cur.Asignaturas);
+
+        if (traerAlumnos)
+          listObj.AddRange(cur.Alumnos);
+        
+        
+        
+        if (traerEvaluacion)
+        {
+           foreach (var alu in cur.Alumnos)
             {
               listObj.AddRange(alu.Evaluaciones);
+              conetoEvaluaciones+= alu.Evaluaciones.Count();
             }
-          }
-
-
-          return listObj;
         }
+           
+      }
+
+
+      return (listObj, conetoEvaluaciones);
+    }    
+
+
 
         private void CargarEvaluacionesYo( int numeroEvaluaciones )
         {
@@ -105,7 +128,7 @@ namespace EscuelaCore.App
                 {
                   var eva = new Evaluación
                   { Asignatura= asi,
-                    Nombre=$"{asi.Nombre} Eva# {i + 1}",
+                    Nombre=$"{asi.Nombre}, Eva# {i + 1}",
                     Nota = (float)(5*rdn.NextDouble()),
                     Alumno=alu
 
@@ -167,6 +190,9 @@ namespace EscuelaCore.App
               Random rnd = new Random();
 
               int cantidadrdn = rnd.Next(1,10);
+              
+      
+
 
             foreach (var c in Escuela.Cursos)
             {

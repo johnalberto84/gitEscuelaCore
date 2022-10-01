@@ -14,7 +14,16 @@ internal class Program
         Printer.Beep(10000,cantidad:2);
         ImprimirCursos( esc.Escuela);
 
-        var listaObjetos = esc.GetObjetosEscuela();
+        var listaObjetos = esc.GetObjetosEscuela(true,false,false,false );
+
+
+
+
+        /* var listaObjetosIlugar = from obj in listaObjetos
+                                 where obj is ILugar
+                                select (ILugar) obj; */
+
+        //esc.Escuela.LimpiarLugar();
 
         /*
         Printer.DrawLine(20);
