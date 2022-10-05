@@ -14,7 +14,39 @@ internal class Program
         Printer.Beep(10000,cantidad:2);
         ImprimirCursos( esc.Escuela);
 
-        var listaObjetos = esc.GetObjetosEscuela(true,false,false,false );
+        
+        var listaObjetos = esc.GetObjetosEscuela(out int conetoEvaluaciones,
+                                                 out int conetoAsignaturas,
+                                                 out int conetoCursos,
+                                                 out int conetoAlumnos);
+    
+     Dictionary<int,string> diccionario = new Dictionary<int, string>();
+
+     diccionario.Add(11,"Jauncho Carreño");
+     diccionario.Add(22,"Jennifercita");
+
+        Printer.WriteTitle("Diccionario");
+     foreach (var dic in diccionario)
+     {
+        Console.WriteLine($"Key:{dic.Key} Valor:{dic.Value}");
+     }
+
+      //diccionario.Add(22," y Jennifercita");
+
+     Console.WriteLine(diccionario[22]);
+
+     Printer.WriteTitle("Nuevo Diccionario");
+
+     var di = new Dictionary<string,string>();
+        di["luna"]= "Cuerpo Celeste para la Gloria de DIOS";
+        Console.Write($"Luna:{di["luna"]}");
+
+
+       var dictemp= esc.GetDiccionarioObjetos();
+
+       esc.ImprimirDiccionario(dictemp);
+
+
 
 
 
@@ -71,6 +103,8 @@ internal class Program
 
         
     }
+
+    
 
     private static void ImprimirCursos(Escuela esc)
         {
