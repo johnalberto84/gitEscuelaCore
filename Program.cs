@@ -44,7 +44,7 @@ internal class Program
 
        var dictemp= esc.GetDiccionarioObjetos();
 
-       esc.ImprimirDiccionario(dictemp);
+       esc.ImprimirDiccionario(dictemp,true);
 
 
 

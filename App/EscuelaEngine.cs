@@ -47,16 +47,54 @@ namespace EscuelaCore.App
 
             foreach (var con in obj.Value)
             {
-             if (imprimirEvaluacion && con is Evaluación )
-             {
+
+              switch (obj.Key )
+              {
+
+                case LlavesDiccionario.Evaluacion :
+                if (imprimirEvaluacion)
+                  Console.WriteLine("Evaluacion:"+ con);
+
+                break;
+
+                case LlavesDiccionario.Alumno :
+                Console.WriteLine("Alumno:"+ con.Nombre);
+                break;
+
+                case LlavesDiccionario.Asignatura:
+                Console.WriteLine("Asignatura:"+ con.Nombre);
+
+                break;
+
+                case LlavesDiccionario.Curso:
+                Console.WriteLine("Cursos:"+ con.Nombre);
+
+                break;
+                
+                default:
+                Console.WriteLine(con) ;
+                break;
+                
+              }
+
+
               
-                Console.WriteLine(con);
+        
+            /*
+             if (con is Evaluación )
+             {
+                if (imprimirEvaluacion)
+                {
+                   Console.WriteLine(con);
+                }
                
              }
              else
              {
                Console.WriteLine(con);
              }
+             */
+
                 
             }
         }
@@ -212,7 +250,7 @@ namespace EscuelaCore.App
                   var eva = new Evaluación
                   { Asignatura= asi,
                     Nombre=$"{asi.Nombre}, Eva# {i + 1}",
-                    Nota = (float)(5*rdn.NextDouble()),
+                    Nota = (float)Math.Round((5*rdn.NextDouble()),2),
                     Alumno=alu
 
                   };
@@ -272,7 +310,7 @@ namespace EscuelaCore.App
 
               Random rnd = new Random();
 
-              int cantidadrdn = rnd.Next(1,30);
+              int cantidadrdn = rnd.Next(1,10);
               
       
 
