@@ -236,6 +236,8 @@ namespace EscuelaCore.App
 
         private void CargarEvaluaciones()
         {
+
+          var rdn = new Random();
           foreach (var cur in Escuela.Cursos)
           {
              foreach (var asi in cur.Asignaturas)
@@ -244,7 +246,7 @@ namespace EscuelaCore.App
               foreach (var alu in cur.Alumnos)
               {
                 
-                var rdn = new Random(System.Environment.TickCount);
+                
                 for (int i = 0; i < 5; i++)
                 {
                   var eva = new Evaluación

@@ -2,16 +2,39 @@
 using EscuelaCore.App;
 using EscuelaCore.Until;
 using gitEscuelaCore.Entidades;
+using gitEscuelaCore.App;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
+
+#region Eventos
+/*
+        AppDomain.CurrentDomain.ProcessExit+=AccionDelEvento;
+        AppDomain.CurrentDomain.ProcessExit+= (o,s) =>
+        {
+            Printer.Beep(2000, 1000, 1);
+        };
+        AppDomain.CurrentDomain.ProcessExit-=AccionDelEvento;
+*/        
+#endregion
+
         EscuelaEngine esc = new EscuelaEngine();
         esc.Inicializar();
         Printer.WriteTitle("Bienvenidos a la escuela");
 
-        Printer.Beep(10000,cantidad:2);
+        var  reporteador = new Reporteador(esc.GetDiccionarioObjetos());
+
+        var evalList= reporteador.GetListaEvaluaciones();
+        var asiList = reporteador.GetListaAsignaturas();
+        var asixEval = reporteador.GetDicEvaluacionesXAsignatura();
+        var promEval= reporteador.GetPromedioalumnosXAsignatura();
+
+
+#region llenado
+/*
+        //Printer.Beep(10000,cantidad:2);
         ImprimirCursos( esc.Escuela);
 
         
@@ -24,6 +47,8 @@ internal class Program
 
      diccionario.Add(11,"Jauncho Carreño");
      diccionario.Add(22,"Jennifercita");
+
+     //throw new Exception();
 
         Printer.WriteTitle("Diccionario");
      foreach (var dic in diccionario)
@@ -45,7 +70,8 @@ internal class Program
        var dictemp= esc.GetDiccionarioObjetos();
 
        esc.ImprimirDiccionario(dictemp,true);
-
+ */      
+#endregion
 
 
 
@@ -104,7 +130,12 @@ internal class Program
         
     }
 
-    
+    private static void AccionDelEvento(object? sender, EventArgs e)
+    {
+        Printer.WriteTitle("SALIENDO");
+        Printer.Beep(3000,1000,3);
+        Printer.WriteTitle("SALIO");
+    }
 
     private static void ImprimirCursos(Escuela esc)
         {
