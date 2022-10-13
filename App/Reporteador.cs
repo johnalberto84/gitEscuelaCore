@@ -82,11 +82,11 @@ namespace gitEscuelaCore.App
                 var proAlumno = from  eval in asieval.Value
                             group eval by  new {eval.Alumno.UniqueId , eval.Alumno.Nombre } 
                             into grupoEvalAlumno
-                            select new 
+                            select new AlumnoPromedio
                             { 
-                              AlumnoID= grupoEvalAlumno.Key,
-                              AlumnoNombre= grupoEvalAlumno.Key.Nombre,
-                              Promedio = grupoEvalAlumno.Average(evaluacion=>evaluacion.Nota)
+                              alumnokey = grupoEvalAlumno.Key.UniqueId,
+                              alumnonombre = grupoEvalAlumno.Key.Nombre,
+                              alumnoPromedio = grupoEvalAlumno.Average(evaluacion=>evaluacion.Nota)
                             };
 
                 rta.Add(asieval.Key,proAlumno);
@@ -97,6 +97,40 @@ namespace gitEscuelaCore.App
             return rta;
 
          }
+
+
+        public Dictionary<string , IEnumerable<object>> GetEvaluacionesTopAsignaturas(int top)
+        {
+            var rta =  new Dictionary<string , IEnumerable<object>>();
+             var dicEvalXAsi = GetDicEvaluacionesXAsignatura();
+
+            foreach (var asieval in dicEvalXAsi)
+            {
+                var proAlumno = (from  eval in asieval.Value
+                            group eval by  new {eval.Alumno.UniqueId , eval.Alumno.Nombre } 
+                            into grupoEvalAlumno
+                            select new AlumnoPromedio
+                            { 
+                              alumnokey = grupoEvalAlumno.Key.UniqueId,
+                              alumnonombre = grupoEvalAlumno.Key.Nombre,
+                              alumnoPromedio = grupoEvalAlumno.Average(evaluacion=>evaluacion.Nota)
+                            }).OrderByDescending(r=> r.alumnoPromedio).Take(top);
+
+                
+
+
+
+
+                rta.Add(asieval.Key,proAlumno);
+
+
+            }
+
+
+
+            return rta;
+
+        }
 
 
     }

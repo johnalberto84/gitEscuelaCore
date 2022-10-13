@@ -30,6 +30,7 @@ internal class Program
         var asiList = reporteador.GetListaAsignaturas();
         var asixEval = reporteador.GetDicEvaluacionesXAsignatura();
         var promEval= reporteador.GetPromedioalumnosXAsignatura();
+        var toppro= reporteador.GetEvaluacionesTopAsignaturas(5);
 
 
 #region llenado

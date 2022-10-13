@@ -8,11 +8,11 @@ namespace gitEscuelaCore.Entidades
 {
     public class AlumnoPromedio
     {
-        public float AlumnoPromedio;
+        public float alumnoPromedio;
 
-        public string Nombre { get; set; }
+        public string alumnonombre { get; set; }
 
-        public Alumno Alumno{get;set;}
+        public string alumnokey {get;set;}
 
     }
 }
