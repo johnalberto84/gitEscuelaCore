@@ -3,6 +3,7 @@ using EscuelaCore.App;
 using EscuelaCore.Until;
 using gitEscuelaCore.Entidades;
 using gitEscuelaCore.App;
+using  static System.Console;
 
 internal class Program
 {
@@ -31,6 +32,77 @@ internal class Program
         var asixEval = reporteador.GetDicEvaluacionesXAsignatura();
         var promEval= reporteador.GetPromedioalumnosXAsignatura();
         var toppro= reporteador.GetEvaluacionesTopAsignaturas(5);
+
+        Printer.WriteTitle("Obteniendo Evaluaciones");
+
+        var evalu = new Evaluación();
+        string nombre, notastring;
+        float nota;
+
+        WriteLine("Escriba el nombre d ela evalución:");
+        Printer.PresioneEnter();
+        nombre= Console.ReadLine();
+
+      if (string.IsNullOrWhiteSpace(nombre))
+      {
+        throw new ArgumentException("El valor del nombre no puede ser bacio");
+      }
+      else
+      {
+        evalu.Nombre=nombre.ToLower();
+        Console.WriteLine($"El nombre fue procesado:{nombre}...... ");
+      }
+
+      WriteLine("Escriba la nota de evalución:");
+      Printer.PresioneEnter();
+      notastring= Console.ReadLine();
+
+      if (string.IsNullOrWhiteSpace(notastring))
+      {
+        throw new ArgumentException("El valor de la nota puede ser vacio");
+      }
+      else
+      {
+
+        try
+        {
+             evalu.Nota= float.Parse(notastring);
+
+            if (evalu.Nota <0 || evalu.Nota >5 )
+            {
+                throw new ArgumentOutOfRangeException ($"El valor debe tener un rago entre 0.0 y 5.0:{notastring}...... ");
+                 
+            }
+            else
+            {
+               
+                Console.WriteLine($"El nota fue procesado:{notastring}...... ");
+            }
+            
+        }
+        catch(ArgumentOutOfRangeException arge)
+        {
+            WriteLine(arge.Message);
+        }
+        catch (Exception)
+        {
+            
+           WriteLine("Saliendo del programa");
+        }
+        finally
+        {
+            WriteLine("Finally");
+            Printer.Beep(2000,500,3);
+
+        }
+
+        PrintReport();
+        
+       
+      }
+      
+
+
 
 
 #region llenado
@@ -129,6 +201,117 @@ internal class Program
 
 
         
+    }
+
+    private static void PrintReport()
+    {
+
+       
+
+        int opcion;
+        string opcionstring  ;
+
+        Printer.WriteTitle("Opciones de Reporte");
+        WriteLine("Digite Ver Listado de Todas las Evaluaciones (1) ");
+        WriteLine("Digite Ver Listado de Asignaturas (2) ");
+        WriteLine("Digite Ver Listado de Todas las Evaluaciones x Asignaura (3) ");
+        WriteLine("Digite Ver Listado de promedios de mas asignatura (4) ");
+        WriteLine("Digite Ver Listado Las mejores evaluaciones (5) ");
+        
+        Printer.PresioneEnter();
+        opcionstring= Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(opcionstring))
+        {
+            throw new ArgumentNullException("No has registrado ninguna opción");
+        }
+        else
+        {
+                try
+                {
+                    
+                    opcion= Convert.ToInt32(opcionstring);
+                    if (opcion<0 || opcion>5)
+                    {
+                        throw new ArgumentOutOfRangeException("La opción esta por fuera del rango");
+                        
+                    }
+                    else
+                    {
+                        switch (opcion)
+                        {
+                            case 1:
+                                WriteLine("Elegiste Opción (1)");
+                            break;
+
+                             case 2:
+                                WriteLine("Elegiste Opción (2)");
+                            break;
+                             case 3:
+                                WriteLine("Elegiste Opción (3)");
+                            break;
+
+                             case 4:
+                                WriteLine("Elegiste Opción (4)");
+                            break;
+                            
+                            default :
+                                TopPromedio();
+                                WriteLine("Elegiste Opción (5)");
+                            break;
+                        }
+
+                        
+                    }
+
+
+                }
+                catch ( ArgumentOutOfRangeException arge )
+                {
+                    
+                    WriteLine(arge.Message);
+                }
+                catch
+                {
+                    throw new ArgumentException("La opción de selecciono no es un numero:");
+                    
+                }
+        }
+
+        
+
+
+
+    }
+
+    private static void TopPromedio()
+    {
+
+        string topstring;
+        int top;
+        WriteLine("Digite Ver Listado Las mejores evaluaciones:");
+        Printer.PresioneEnter();
+        topstring= Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(topstring))
+        {
+            throw new ArgumentNullException("Cuantos alumnos quieres ver");
+        }
+        else
+        {
+            try
+            {
+                top= int.Parse(topstring);
+                WriteLine($"El Top de alumnos es {topstring}");
+            }
+            catch (Exception ex)
+            {
+                
+               WriteLine("Probablemente lo que escribio no era un número"+ ex.Message);
+            }
+           
+        }
+
     }
 
     private static void AccionDelEvento(object? sender, EventArgs e)

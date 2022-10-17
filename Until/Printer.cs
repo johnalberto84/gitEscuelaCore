@@ -16,6 +16,14 @@ namespace EscuelaCore.Until
             
         }
 
+        public static void PresioneEnter()
+        {
+            
+             
+             WriteLine("Presione Enter para continuar");
+            
+        }
+
         public static void WriteTitle( string titulo)
         {
             DrawLine(titulo.Length+4);
